@@ -1,9 +1,18 @@
 const express = require("express");
-const app = express();
+const server = express();
 const PORT = process.env.PORT
 
-app.get("/", (req, res) => {
-res.send({ hello: "world" });
+let users = [
+    {
+        id : "1",
+        name : "sd",
+        num : "2"
+    }
+];
+
+
+server.get("/", (req, res) => {
+res.send(users);
 });
 
-app.listen(PORT);
+server.listen(PORT);
