@@ -2,13 +2,12 @@ const express = require("express");
 const server = express();
 const PORT = process.env.PORT
 
-let users = [
+let users = 
     {
         id : "1",
         name : "user",
         num : "1"
-    }
-];
+    };
 
 
 server.all('/*', function(req, res, next) {
