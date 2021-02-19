@@ -11,12 +11,11 @@ let users = [
 ];
 
 
-servser.use(function(req, res, next) {
+server.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
-       res.header("Access-Control-Allow-Headers", "X-Requested-With");
-       res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-       next();
-   });
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
    
   
 server.get("/api/user", (req, res) => {
