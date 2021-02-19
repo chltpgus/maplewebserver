@@ -15,6 +15,10 @@ var data2 = {
     name: 'mike',
     data: '34'
 };
+
+var fs = require('fs'); 
+fs.readFile('user.txt', 'utf8', function(err, data) { console.log(data); });
+
 o[key].push(data);
 o[key].push(data2);
  
