@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
        next();
    });
    
-   출처: https://m.mkexdev.net/339 [박종명의 아름다운 개발 since 2010.06]
+  
 
 server.get("/api/user", (req, res) => {
 res.json(users);
