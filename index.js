@@ -11,6 +11,15 @@ let users = [
 ];
 
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
+       res.header("Access-Control-Allow-Headers", "X-Requested-With");
+       res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+       next();
+   });
+   
+   출처: https://m.mkexdev.net/339 [박종명의 아름다운 개발 since 2010.06]
+
 server.get("/api/user", (req, res) => {
 res.json(users);
 });
