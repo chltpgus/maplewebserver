@@ -5,8 +5,8 @@ const PORT = process.env.PORT
 let users = [
     {
         id : "1",
-        name : "sd",
-        num : "2"
+        name : "user",
+        num : "1"
     }
 ];
 
