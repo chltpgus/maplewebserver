@@ -12,7 +12,7 @@ let users = [
 
 
 server.get("/", (req, res) => {
-res.send(users);
+res.json(users);
 });
 
 server.listen(PORT);
