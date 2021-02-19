@@ -24,6 +24,3 @@ app.get("/", (req, res) => {
 res.send(result);
 });
 app.listen(port);
-
-
-출처: https://jason24k.tistory.com/9 [제이슨's 블로그:)]
