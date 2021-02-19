@@ -11,7 +11,7 @@ let users = [
     }
 ];
 
-sever.get("/api/user",(res,res)=>{
+sever.get("/users",(res,res)=>{
     res.json(users);
 });
 
