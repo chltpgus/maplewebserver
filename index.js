@@ -7,7 +7,7 @@ let users = [
     {
         id: "1"
         ,name:"NumberOfUsers"
-        ,number:1
+        ,number:"1"
     }
 ];
 
