@@ -11,7 +11,7 @@ let users = [
     }
 ];
 
-sever.get("/users",(res,res)=>{
+sever.get("/api/user",(res,res)=>{
     res.json(users);
 });
 
@@ -21,9 +21,8 @@ server.listen(port, () => {
 
 
 
- /*
+
 app.get("/", (req, res) => {
 res.send(result);
 });
 app.listen(port);
-*/
