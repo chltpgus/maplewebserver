@@ -11,7 +11,7 @@ let users = [
 ];
 
 
-server.get("/", (req, res) => {
+server.get("/api/user", (req, res) => {
 res.json(users);
 });
 
