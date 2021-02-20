@@ -19,7 +19,7 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
 });
 
 
-server.get("/api/user", (req, res) => {
+server.post("/api/user", (req, res) => {
 
 
     let db = new sqlite3.Database('sqlite.db',(err)=>{
