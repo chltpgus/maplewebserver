@@ -1,6 +1,8 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 const server = express();
 const PORT = process.env.PORT
+server.use(bodyParser.json());
 
 const sqlite3 = require('sqlite3').verbose();
 let id = 1, name = "user number", num = 3;
@@ -20,8 +22,14 @@ db.run(UPDATE, function(err){
     if(err){
         return console.log(err.message);
     }
+
     console.log(UPDATE);
     console.log('UPDATE');
+
+    server.get("/api/user", (req, res) => {
+        console.log(req.body);
+        //res.json(users);
+        });
 });
 
 db.each("SELECT * FROM user", function(err, row){
@@ -37,7 +45,7 @@ db.each("SELECT * FROM user", function(err, row){
     server.get("/api/user", (req, res) => {
         res.json(users);
         });
-        
+        /*
         server.get("/api/user/:id", (req, res) => {
             const user = users.find((u)=>{
                 return u.id === req.params.id;
@@ -48,7 +56,7 @@ db.each("SELECT * FROM user", function(err, row){
                 res.status(404).json({ errorMessage : "User was not found"});
             }
 
-        });
+        });*/
         
         server.post("/api/user", (req, res) => {
             res.json(users);
