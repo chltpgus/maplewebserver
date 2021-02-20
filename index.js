@@ -25,11 +25,6 @@ db.run(UPDATE, function(err){
 
     console.log(UPDATE);
     console.log('UPDATE');
-
-    server.get("/api/user/update", (req, res) => {
-        console.log(req.body);
-        //res.json(users);
-        });
 });
 
 db.each("SELECT * FROM user", function(err, row){
@@ -48,6 +43,18 @@ db.each("SELECT * FROM user", function(err, row){
         
         server.post("/api/user", (req, res) => {
             res.json(users);
+            console.log(req.body);
+
+        
+            db.run(UPDATE, function(err){
+                if(err){
+                    return console.log(err.message);
+                }
+            
+                console.log(UPDATE);
+                console.log('UPDATE');
+            });
+
             });
         
         server.listen(PORT);
