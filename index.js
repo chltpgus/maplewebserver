@@ -16,6 +16,14 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
     console.log('connected to db'); 
 });
 
+db.run(UPDATE, function(err){
+    if(err){
+        return console.log(err.message);
+    }
+    console.log(UPDATE);
+    console.log('UPDATE');
+});
+
 db.each("SELECT * FROM user", function(err, row){
 
     let users = 
@@ -51,13 +59,6 @@ db.each("SELECT * FROM user", function(err, row){
 
 });
 
-db.run(UPDATE, function(err){
-    if(err){
-        return console.log(err.message);
-    }
-    console.log(UPDATE);
-    console.log('UPDATE');
-});
 
 db.close();
 
