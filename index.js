@@ -11,6 +11,7 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
     if(err){
         console.log(err.message);
     }
+    
     console.log('connected to db'); 
       
     let users = 
