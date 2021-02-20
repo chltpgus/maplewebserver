@@ -21,6 +21,17 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
         num : 1
     }];
 
+
+    db.run(UPDATE, function(err){
+        if(err){
+            return console.log(err.message);
+        }
+        
+        console.log('UPDATE');
+    });
+
+
+
     db.each("SELECT * FROM user", function(err, row){
         users = row;
     
@@ -53,15 +64,6 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
 
 });
 
-//console.log(UPDATE);
-
-db.run(UPDATE, function(err){
-    if(err){
-        return console.log(err.message);
-    }
-    
-    console.log('UPDATE');
-});
 
 db.close();
 
