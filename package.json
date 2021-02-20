@@ -8,8 +8,7 @@
     "node-gyp": "^7.1.2",
     "sequelize": "^6.5.0",
     "sqlite3": "^5.0.2"
-  }
-  ,
+  },
   "devDependencies": {},
   "scripts": {
     "start": "node index.js",
