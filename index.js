@@ -36,6 +36,7 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
                 } else{
                     res.status(404).json({ errorMessage : "User was not found"});
                 }
+
             });
             
             server.post("/api/user", (req, res) => {
