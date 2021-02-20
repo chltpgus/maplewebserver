@@ -3,7 +3,7 @@ const server = express();
 const PORT = process.env.PORT
 
 const sqlite3 = require('sqlite3').verbose();
-let id = 1, name = "user number", num = 1;
+let id = 1, name = "user", num = 1;
 
 let UPDATE = 'UPDATE user SET num = '+ num + ' WHERE id =' + id;
 
@@ -23,7 +23,7 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
 
     db.each("SELECT * FROM user", function(err, row){
         users = row;
-      
+    
         server.get("/api/user", (req, res) => {
             res.json(users);
             });
@@ -59,6 +59,7 @@ db.run(UPDATE, function(err){
     if(err){
         return console.log(err.message);
     }
+    
     console.log('UPDATE');
 });
 
