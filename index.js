@@ -20,7 +20,7 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
         name : "user",
         num : 1
     }];
-/*
+
     db.each("SELECT * FROM user", function(err, row){
         users = row;
       
@@ -52,7 +52,6 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
     
 
 });
-*/
 
 //console.log(UPDATE);
 
