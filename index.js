@@ -19,42 +19,14 @@ let db = new sqlite3.Database('sqlite.db',(err)=>{
 });
 
 
-server.get("/api/user/test", (req, res) => {
-    res.json(req.body);
+db.run(UPDATE, function(err){
+    if(err){
+        return console.log(err.message);
+    }
 
-
-    let db = new sqlite3.Database('sqlite.db',(err)=>{
-        if(err){
-            console.log(err.message);
-        }  
-        console.log('connected to db'); 
-    });
-
-    let users = 
-    [{
-        id : 1,
-        name : "user number",
-        num : 1
-    }];
-
-    console.log(req.body.num);
-
-    users = req.body;
-
-    num = req.body.num;
-
-    let UPDATE = 'UPDATE user SET num = '+ num + ' WHERE id =' + id;
-
-    db.run(UPDATE, function(err){
-        if(err){
-            return console.log(err.message);
-        }
-    
-        console.log(UPDATE);
-        console.log('UPDATE');
-    });
-
-    });
+    console.log(UPDATE);
+    console.log('UPDATE');
+});
 
 db.each("SELECT * FROM user", function(err, row){
 
@@ -66,6 +38,14 @@ db.each("SELECT * FROM user", function(err, row){
     }];
     users = row;
 
+});
+
+server.get("/api/user", (req, res) => {
+    res.json(req);
+    console.log(req.body);   
+
+    });
+
     server.get("/api/user", (req, res) => {
         res.json(users);
         });
@@ -75,23 +55,12 @@ db.each("SELECT * FROM user", function(err, row){
         server.listen(3000, () => {
             console.log(`3000번 port에 http server를 띄웠습니다.`)
           });*/
-        
 
-});
+
 
 
 db.close();
 
-
-/*
-let users = 
-    [{
-        id : 1,
-        name : "user",
-        num : 1
-    }
-];
-*/
 
 
 server.all('/*', function(req, res, next) {
@@ -101,25 +70,3 @@ server.all('/*', function(req, res, next) {
   });
    
  
-/*
-server.get("/api/user", (req, res) => {
-res.json(users);
-});
-
-server.get("/api/user/:id", (req, res) => {
-    const user = users.find((u)=>{
-        return u.id === req.params.id;
-    });
-    if(user){
-        res.json(user);
-    } else{
-        res.status(404).json({ errorMessage : "User was not found"});
-    }
-});
-
-server.post("/api/user", (req, res) => {
-    res.json(users);
-    });
-
-server.listen(PORT);
-*/
