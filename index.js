@@ -28,7 +28,7 @@ db.run(UPDATE, function(err){
 
     server.get("/api/user", (req, res) => {
         console.log(req.body);
-        //res.json(users);
+        res.json(users);
         });
 });
 
