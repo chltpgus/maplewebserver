@@ -25,11 +25,11 @@ db.run(UPDATE, function(err){
 
     console.log(UPDATE);
     console.log('UPDATE');
-
+/*
     server.get("/api/user", (req, res) => {
         console.log(req.body);
         res.json(users);
-        });
+        });*/
 });
 
 db.each("SELECT * FROM user", function(err, row){
