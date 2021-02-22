@@ -18,7 +18,7 @@ let users =
 
 // let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
 
-/*
+
 
 let db = new sqlite3.Database('sqlite.db', (err) => {
     if (err) {
@@ -26,7 +26,7 @@ let db = new sqlite3.Database('sqlite.db', (err) => {
     }
     console.log('connected to db');
 });
-*/
+
 
 
 /*
