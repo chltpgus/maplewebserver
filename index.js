@@ -40,14 +40,24 @@ db.run(UPDATE, function (err) {
 });
 
 
+server.get("/api/user", (req, res) => {
+    
+    let db = new sqlite3.Database('sqlite.db', (err) => {
+        if (err) {
+            console.log(err.message);
+        }
+        console.log('connected to db');
+    });
 
-
-db.each("SELECT * FROM user", function (err, row) {
-    server.get("/api/user", (req, res) => {
-        res.json(res);
+    db.each("SELECT * FROM user", function (err, row) {
+        res.json(row);
     });
 });
-
+/*
+db.each("SELECT * FROM user", function (err, row) {
+    console.log(row);
+});
+*/
 
 server.get("/api/users", (req, res) => {
     res.json(req);
