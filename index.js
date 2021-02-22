@@ -39,33 +39,32 @@ db.run(UPDATE, function(err){
     console.log('UPDATE');
 });
 
- db.each("SELECT * FROM user", function(err, row){
+ db.each("SELECT * FROM user", function(err, row){   
+    console.log(row);
 
-
-});
-
-
-server.get("/api/users", (req, res) => {
-    res.json(req);
-    console.log(req.body);
+    server.get("/api/user", (req, res) => {
+        res.json(row);
+        });
 
 });
+
 
 server.get("/api/user", (req, res) => {
+    res.json(req);
+    console.log(req.body);   
 
-    db.each("SELECT * FROM user", function (err, row) {
-        res.json(row);
-        console.log('SELECT');
     });
 
-});
+    server.get("/api/user", (req, res) => {
+        res.json(users);
+        });
+        
+     server.listen(PORT);
 
-server.listen(PORT);
-
-/*
-server.listen(3000, () => {
-    console.log(`3000번 port에 http server를 띄웠습니다.`)
-  });*/
+        /*
+        server.listen(3000, () => {
+            console.log(`3000번 port에 http server를 띄웠습니다.`)
+          });*/
 
 
 
