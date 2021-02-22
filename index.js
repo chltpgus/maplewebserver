@@ -53,7 +53,7 @@ server.get("/api/user", (req, res) => {
     });
 });
 
-/*
+
 server.get("/api/users", (req, res) => {
 
     users = req.body;
@@ -78,7 +78,7 @@ server.get("/api/users", (req, res) => {
     });
 
 });
-*/
+
 
 
 server.listen(PORT);
@@ -95,7 +95,8 @@ db.close();
 
 
 server.all('/*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
+    //res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
