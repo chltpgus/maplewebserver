@@ -62,7 +62,7 @@ server.get("/api/users", (req, res) => {
     let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
 
     console.log(UPDATE);
-    /*
+    
     let db = new sqlite3.Database('sqlite.db', (err) => { // 디비 불러오기
         if (err) {
             console.log(err.message);
@@ -76,19 +76,19 @@ server.get("/api/users", (req, res) => {
         }
         console.log('UPDATE');
     });
-*/
+
 });
 
 
 
-//server.listen(PORT);
+server.listen(PORT);
 
-
+/*
 server.listen(3000, () => {
     console.log(`3000번 port에 http server를 띄웠습니다.`)
   });
 
-
+*/
 
 db.close();
 
