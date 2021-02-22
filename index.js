@@ -49,15 +49,29 @@ server.get("/api/user", (req, res) => {
     });
 
     db.each("SELECT * FROM user", function (err, row) { // 디비에서 user정보 가져오기
-        res.json(row);                                  // 서버에 json으로 보내기
+        user = row;
+        users = req.body;
+        res.json(user);                                  // 서버에 json으로 보내기
+        console.log(users);
+        num = users.num, id= users.id;
+        let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
+
+        db.run(UPDATE, function (err) {
+            if (err) {
+                return console.log(err.message);
+            }
+            console.log('UPDATE');
+        });
+
     });
+
 
     db.close();
 
 });
+/*
 
-
-server.get("/api/users", (req, res) => {
+server.get("/api/user", (req, res) => {
 
     users = req.body;
     console.log(users);
@@ -83,7 +97,7 @@ server.get("/api/users", (req, res) => {
     db.close();
 
 });
-
+*/
 
 
 server.listen(PORT);
@@ -92,8 +106,8 @@ server.listen(PORT);
 server.listen(3000, () => {
     console.log(`3000번 port에 http server를 띄웠습니다.`)
   });
-
 */
+
 
 db.close();
 
