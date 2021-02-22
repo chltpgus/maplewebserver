@@ -43,7 +43,7 @@ db.run(UPDATE, function(err){
     console.log(row);
 
     server.get("/api/user", (req, res) => {
-        res.json(row);
+        res.json(users);
         });
 
 });
