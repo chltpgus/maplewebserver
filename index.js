@@ -51,6 +51,9 @@ server.get("/api/user", (req, res) => {
     db.each("SELECT * FROM user", function (err, row) { // 디비에서 user정보 가져오기
         res.json(row);                                  // 서버에 json으로 보내기
     });
+
+    db.close();
+
 });
 
 
@@ -76,6 +79,8 @@ server.get("/api/users", (req, res) => {
         }
         console.log('UPDATE');
     });
+
+    db.close();
 
 });
 
