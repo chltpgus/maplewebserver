@@ -54,11 +54,11 @@ server.get("/api/user", (req, res) => {
     console.log(req.body);   
 
     });
-
+/*
     server.get("/api/user", (req, res) => {
         res.json(users);
         });
-        
+        */
      server.listen(PORT);
 
         /*
