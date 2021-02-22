@@ -62,7 +62,7 @@ server.get("/api/users", (req, res) => {
     let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
 
     console.log(UPDATE);
-    
+    /*
     let db = new sqlite3.Database('sqlite.db', (err) => { // 디비 불러오기
         if (err) {
             console.log(err.message);
@@ -76,7 +76,7 @@ server.get("/api/users", (req, res) => {
         }
         console.log('UPDATE');
     });
-
+*/
 });
 
 
