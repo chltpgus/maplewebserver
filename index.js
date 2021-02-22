@@ -49,7 +49,7 @@ db.run(UPDATE, function(err){
 });
 
 
-server.get("/api/user", (req, res) => {
+server.get("/api/users", (req, res) => {
     res.json(req);
     console.log(req.body);   
 
