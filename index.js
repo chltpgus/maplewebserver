@@ -53,7 +53,7 @@ server.get("/api/user", (req, res) => {
     });
 });
 
-
+/*
 server.get("/api/users", (req, res) => {
 
     users = req.body;
@@ -78,7 +78,7 @@ server.get("/api/users", (req, res) => {
     });
 
 });
-
+*/
 
 
 server.listen(PORT);
