@@ -60,6 +60,7 @@ server.get("/api/user", (req, res) => {
 
 
 
+server.listen(PORT);
 
 /*
 server.listen(3000, () => {
@@ -77,7 +78,7 @@ server.all('/*', function (req, res, next) {
     next();
 });
 
-server.listen(PORT);
+
 
 /*
 
