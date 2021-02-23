@@ -10,7 +10,7 @@ const corsOptions = {
   origin: "https://mapleaing.netlify.app",
   credentials: true
 }
-app.use(cors(corsOptions));
+server.use(cors(corsOptions));
 
 var mysql      = require('mysql');
 
