@@ -1,11 +1,29 @@
+
 const express = require("express");
 const bodyParser = require('body-parser')
 const server = express();
 const PORT = process.env.PORT
 server.use(bodyParser.json());
-
-const sqlite3 = require('sqlite3').verbose();
 let id = 1, name = "user number", num = 3;
+
+
+var mysql      = require('mysql');
+
+var connection = mysql.createConnection({
+    host     : 'us-cdbr-east-03.cleardb.com',
+    port     : '3306',
+    user     : 'b932d2fb62d529',
+    password : 'b5b268a8',
+    database : 'heroku_a3e154cc90440ef'
+   });
+/*
+   connection.connect(function(err) {
+    if (err) throw err;
+    console.log("connected to mysql!");
+  });
+
+  */
+
 
 let users =
     [{
@@ -14,61 +32,44 @@ let users =
         num: 1
     }];
 
-
-
-// let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
-
-
-
-let db = new sqlite3.Database('sqlite.db', (err) => {
-    if (err) {
-        console.log(err.message);
-    }
-    console.log('connected to db');
-});
-
-
-
 /*
-db.run(UPDATE, function (err) {
-    if (err) {
-        return console.log(err.message);
-    }
+connection.query('select * from table ', function (err, result) {
 
-    console.log('UPDATE');
-});
-*/
+    console.log(result);
+
+});*/
+
+
 
 server.get("/api/user", (req, res) => {
 
-    let db = new sqlite3.Database('sqlite.db', (err) => { // 디비 불러오기
-        if (err) {
-            console.log(err.message);
-        }
-        console.log('connected to db');
-    });
+    
 
-    db.each("SELECT * FROM user", function (err, row) { // 디비에서 user정보 가져오기
+    connection.query("SELECT * FROM user", function (err, row) {
+
+    
         user = row;
         users = req.body;
         res.json(user);                                  // 서버에 json으로 보내기
-        console.log(users);
+        console.log(row);
         num = users.num, id= users.id;
-        let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
-
-        db.run(UPDATE, function (err) {
+        let UPDATE = "UPDATE user SET num = '" + num + "'"+ " WHERE id ='" + id+"'";
+    
+        connection.query(UPDATE, function (err) {
             if (err) {
                 return console.log(err.message);
             }
             console.log('UPDATE');
+        
+        
         });
-
     });
 
-
-    db.close();
-
 });
+
+
+
+
 /*
 
 server.get("/api/user", (req, res) => {
@@ -100,16 +101,14 @@ server.get("/api/user", (req, res) => {
 */
 
 
-server.listen(PORT);
+//server.listen(PORT);
 
-/*
+
 server.listen(3000, () => {
     console.log(`3000번 port에 http server를 띄웠습니다.`)
   });
-*/
 
 
-db.close();
 
 
 
@@ -121,3 +120,21 @@ server.all('/*', function (req, res, next) {
 });
 
 
+/*
+db.run(UPDATE, function (err) {
+    if (err) {
+        return console.log(err.message);
+    }
+
+    console.log('UPDATE');
+});
+*/
+
+/*
+
+ClearDB
+mysql://[user name]:[password]@[Host name]/[password2]?reconnect=true
+mysql://b932d2fb62d529:b5b268a8@us-cdbr-east-03.cleardb.com/heroku_a3e154cc90440ef?reconnect=true
+Username:	b932d2fb62d529
+Password:	b5b268a8 (Reset)
+*/ 
