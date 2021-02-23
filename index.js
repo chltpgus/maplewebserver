@@ -31,22 +31,11 @@ let users =
         num: 1
     }];
 
-/*
-connection.query('select * from table ', function (err, result) {
-
-    console.log(result);
-
-});*/
-
-
 
 server.get("/api/user", (req, res) => {
 
-    
-
     connection.query("SELECT * FROM user", function (err, row) {
 
-    
         user = row;
         users = req.body;
         res.json(user);                                  // 서버에 json으로 보내기
@@ -70,38 +59,7 @@ server.get("/api/user", (req, res) => {
 
 
 
-/*
 
-server.get("/api/user", (req, res) => {
-
-    users = req.body;
-    console.log(users);
-    num = users.num, id= users.id;
-    let UPDATE = 'UPDATE user SET num = ' + num + ' WHERE id =' + id;
-
-    console.log(UPDATE);
-    
-    let db = new sqlite3.Database('sqlite.db', (err) => { // 디비 불러오기
-        if (err) {
-            console.log(err.message);
-        }
-        console.log('connected to db');
-    });
-
-    db.run(UPDATE, function (err) {
-        if (err) {
-            return console.log(err.message);
-        }
-        console.log('UPDATE');
-    });
-
-    db.close();
-
-});
-*/
-
-
-server.listen(PORT);
 
 /*
 server.listen(3000, () => {
@@ -119,16 +77,7 @@ server.all('/*', function (req, res, next) {
     next();
 });
 
-
-/*
-db.run(UPDATE, function (err) {
-    if (err) {
-        return console.log(err.message);
-    }
-
-    console.log('UPDATE');
-});
-*/
+server.listen(PORT);
 
 /*
 
