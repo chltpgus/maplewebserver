@@ -5,7 +5,12 @@ const server = express();
 const PORT = process.env.PORT
 server.use(bodyParser.json());
 let id = 1, name = "user number", num = 3;
-
+const cors = require('cors');
+const corsOptions = {
+  origin: "https://mapleaing.netlify.app",
+  credentials: true
+}
+app.use(cors(corsOptions));
 
 var mysql      = require('mysql');
 
@@ -33,12 +38,6 @@ let users =
 
 
 server.get("/api/user", (req, res) => {
-    server.all('/*', function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
-        //res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        next();
-    });
 
     connection.query("SELECT * FROM user", function (err, row) {
 
@@ -57,7 +56,6 @@ server.get("/api/user", (req, res) => {
         
         
         });
-        
     });
 
 });
@@ -77,14 +75,15 @@ server.listen(3000, () => {
 
 */
 
-
+/*
 server.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://mapleaing.netlify.app");
     //res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
-
+*/
 
 
 /*
