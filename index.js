@@ -24,7 +24,6 @@ var connection = mysql.createConnection({
 
   */
 
-
 let users =
     [{
         id: 1,
@@ -70,6 +69,7 @@ server.get("/api/user", (req, res) => {
 
 
 
+
 /*
 
 server.get("/api/user", (req, res) => {
@@ -101,15 +101,15 @@ server.get("/api/user", (req, res) => {
 */
 
 
-//server.listen(PORT);
+server.listen(PORT);
 
-
+/*
 server.listen(3000, () => {
     console.log(`3000번 port에 http server를 띄웠습니다.`)
   });
 
 
-
+*/
 
 
 server.all('/*', function (req, res, next) {
