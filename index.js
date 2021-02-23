@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require('body-parser')
 const server = express();
+const http = require("http");
 const PORT = process.env.PORT
 server.use(bodyParser.json());
 let id = 1, name = "user number", num = 3;
@@ -12,10 +13,14 @@ const corsOptions = {
 }
 server.use(cors(corsOptions));
 
-var mysql      = require('mysql');
+let mysql      = require('mysql');
 
 
-var connection = mysql.createConnection({
+setInterval(() => {
+    http.get("http://mapleing.herokuapp.com/api/user");
+}, 3000);
+
+let connection = mysql.createConnection({
     host     : 'us-cdbr-east-03.cleardb.com',
     port     : '3306',
     user     : 'b932d2fb62d529',
