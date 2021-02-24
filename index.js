@@ -43,6 +43,29 @@ let users =
     }];
 
 
+server.get("/api/user", (req, res) => {
+
+    connection.query("SELECT * FROM user", function (err, row) {
+
+        user = row;
+        users = req.body;
+        res.json(user);                                  // 서버에 json으로 보내기
+        console.log(row);
+        num = users.num, id= users.id;
+        let UPDATE = "UPDATE user SET num = '" + num + "'"+ " WHERE id ='" + id+"'";
+    
+        connection.query(UPDATE, function (err) {
+            if (err) {
+                return console.log(err.message);
+            }
+            console.log('UPDATE');
+        
+        
+        });
+    });
+
+});
+
 server.post("/api/user", (req, res) => {
 
     connection.query("SELECT * FROM user", function (err, row) {
