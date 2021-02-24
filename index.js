@@ -43,7 +43,7 @@ let users =
     }];
 
 
-server.get("/api/user", (req, res) => {
+server.post("/api/user", (req, res) => {
 
     connection.query("SELECT * FROM user", function (err, row) {
 
