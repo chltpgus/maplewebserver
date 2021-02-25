@@ -37,7 +37,16 @@ let connection = mysql.createConnection({    //MYSQL CONNECTION
 
 
 server.get("/api/user", (req, res) => { // get요청이 오면 
-        res.json(res);                                  // 서버에 json으로 보내기
+
+    connection.query("SELECT * FROM user", function (err, row) {
+
+        user = row;
+        users = req.body;
+        res.json(user);                                  // 서버에 json으로 보내기
+        console.log(row); 
+    });
+
+    
 });
 
 server.post("/api/user", (req, res) => { // post 요청이 오면
