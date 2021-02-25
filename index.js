@@ -57,6 +57,7 @@ server.get("/api/user", (req, res) => { // get요청이 오면
         });
     });
 
+    
 });
 
 server.post("/api/user", (req, res) => { // post 요청이 오면
