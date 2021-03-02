@@ -11,4 +11,4 @@ Mysql 테이블 구성이다. id, name, num으로 구성되어 있다. 테스트
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/67909892/109592213-3e701680-7b52-11eb-8a65-76cb56ed612d.png" > <img src="https://user-images.githubusercontent.com/67909892/109592213-3e701680-7b52-11eb-8a65-76cb56ed612d.png" > </p>
+<img src="https://user-images.githubusercontent.com/67909892/109592232-43cd6100-7b52-11eb-8ca9-848af0a10372.png" > <img src="https://user-images.githubusercontent.com/67909892/109592213-3e701680-7b52-11eb-8a65-76cb56ed612d.png" > </p>
