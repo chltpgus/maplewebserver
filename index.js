@@ -35,7 +35,6 @@ let connection = mysql.createConnection({    //MYSQL CONNECTION
    });
 
 
-
 server.get("/api/user", (req, res) => { // get요청이 오면 
 
     connection.query("SELECT * FROM user", function (err, row) {
