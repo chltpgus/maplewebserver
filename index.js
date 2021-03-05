@@ -34,7 +34,7 @@ let connection = mysql.createConnection({    //MYSQL CONNECTION
     database : 'heroku_a3e154cc90440ef'
    });
 
-/*
+
 server.get("/api/user", (req, res) => { // get요청이 오면 
 
     connection.query("SELECT * FROM user", function (err, row) {
@@ -45,9 +45,9 @@ server.get("/api/user", (req, res) => { // get요청이 오면
         console.log(row); 
     });
 
-   
+    
 });
-*/
+
 server.post("/api/user", (req, res) => { // post 요청이 오면
 
     connection.query("SELECT * FROM user", function (err, row) {
